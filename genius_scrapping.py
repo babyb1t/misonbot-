@@ -1,12 +1,13 @@
 
 import requests
+import variables
 from bs4 import BeautifulSoup
 
 
 
 base_url = "http://api.genius.com"
 
-headers = {'Authorization':'Bearer Token'}
+headers = {'Authorization':'Bearer {}'.format(variables.Token_genius)}
 
 def lyrics_from_song_api_path(song_api_path):
   song_url = base_url + song_api_path

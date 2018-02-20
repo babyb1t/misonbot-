@@ -1,46 +1,15 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
-"""Simple Bot to reply to Telegram messages.
-This is built on the API wrapper, see echobot2.py to see the same example built
-on the telegram.ext bot framework.
-This program is dedicated to the public domain under the CC0 license.
-"""
 import logging
-import read_lyrics
+import read_db
+import variables
 from telegram import Bot
 from telegram.error import NetworkError, Unauthorized
 from time import sleep
 from pymongo import MongoClient
 
 client = MongoClient('localhost',27017)
-
-
-update_id = None
-
-
-def main():
-    """Run the bot."""
-    global update_id
-    # Telegram Bot Authorization Token
-   
-
-    # get the first pending update_id, this is so we can skip over it in case
-    # we get an "Unauthorized" exception.
-    try:
-        update_id = bot.get_updates()[0].update_id
-    except IndexError:
-        update_id = None
-
-    logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-
-    while True:
-        try:
-            echo(bot)
-        except NetworkError:
-            sleep(1)
-        except Unauthorized:
-            # The user has removed or blocked the bot.
-            update_id += 1
+#client = MongoClient('mongodb://{}:{}@localhost:27017/'.format(variables.user_mongo,variables.passw_mongo))
 
 
 def user_sexo(update):
@@ -69,23 +38,15 @@ def user_age(update):
 
 
 
-def has_age(update):
+def user_exists(update):
+# revisa si el usuario a usado el bot antes, comprobando que esté en la base de datos.
   db = client.users
   posts =db.users
   if posts.find({"user_id": update.message.chat.id}).count() > 0:
-    #return posts.find_one({"user_id":update.message.chat.id})
+   
     return True
   else:
     return False
-
-#def insert_estro(update, estro):
-#   estrofas = ''
-#   letras, keys = read_lyrics.lyrics(update)
-#   for i in estro:
-#      #estrofas.append(letras[keys[i - 1]])
-#      estrofas += "{}".format(i) + "\n" + letras[keys[i-1]] 
-#   return estrofas
-
 
 def genero_cancion(song_id):
   if song_id >= 10000 and song_id <= 20000:
@@ -107,6 +68,7 @@ def check_array(update,song_name):
   return bol
 
 def base(update,song_name):
+   #genera la estructura de los datos.
    db = client.users
    posts = db.users
    songdb = client.song
@@ -114,7 +76,7 @@ def base(update,song_name):
    if not check_array(update,song_name):
      posts.update_one({"user_id":  update.message.chat.id}, {"$push": {"analisis":{ "name":song_name,
                                                                 "genero":genero_cancion(tmp.find_one({'user_id':update.message.chat.id})["songId"]),
-                                                                "Codigo_cancion":'' ,
+                                                                "Codigo_cancion":tmp.find_one({'user_id':update.message.chat.id})["songId"],
                                                                 "codigo_parrafo_estereotipo":'',
                                                                 "Grado_estereotipo":'',
                                                                 "codigo_parrafo_roles":'',
@@ -130,6 +92,7 @@ def base(update,song_name):
                                                            })
 
 def estereotipo(update, song_name):
+  #inserta la respuesta estereotipo del usuario. 
   db = client.users
   songdb = client.song
   tmp = songdb.tmp
@@ -150,6 +113,7 @@ def estereotipo(update, song_name):
   tmp.update({"user_id":  update.message.chat.id},{"$set":{"estro":[]}})
 
 def roles(update,song_name):
+    #inserta la respuesta roles del usuario.    
     db = client.users
     posts = db.users
     song = client.song
@@ -169,6 +133,7 @@ def roles(update,song_name):
 
 
 def poder(update, song_name):
+    #inserta la respuesta poder del usuario.
     db = client.users
     posts = db.users
     song = client.song
@@ -187,6 +152,7 @@ def poder(update, song_name):
     tmp.update({"user_id":  update.message.chat.id},{"$set":{"estro":[]}})
 
 def cuerpo(update, song_name):
+    #inserta la respuesta cuerpo del usuario.
     db = client.users
     posts = db.users
     song = client.song
@@ -204,6 +170,7 @@ def cuerpo(update, song_name):
     tmp.update({"user_id":  update.message.chat.id},{"$set":{"estro":[]}})
 
 def general(update, song_name ):
+    #inserta la respuesta general es decir si al usuario le parecio sexista la letra de la cancion.
     db = client.users
     posts = db.users
     if update.message.text == 'No' or update.message.text == 'no':

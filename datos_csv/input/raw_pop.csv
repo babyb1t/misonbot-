@@ -2,40 +2,27 @@ _id,Name_song,Genero,Artista,user_id,user_age,analisis,valid,Lyrics
 20000,Perfect Duet,pop,Ed Sheeran & Beyonce,[],[],0,0,"
 
 [Verse 1: Ed Sheeran]
-I found a love
-For me
-Oh darling, just dive right in
-And follow my lead
-Well, I found a girl
-Beautiful and sweet
-Oh, I never knew you were the someone
-Waitin' for me
+I found a love for me
+Oh darling, just dive right in and follow my lead
+Well, I found a girl, beautiful and sweet
+Oh, I never knew you were the someone waitin' for me
 'Cause we were just kids when we fell in love
 Not knowin' what it was
 I will not give you up this time
-But darling, just kiss me slow
-Your heart is all I own
+But darling, just kiss me slow, your heart is all I own
 And in your eyes, you're holding mine
 
 [Chorus 1: Ed Sheeran]
-Baby, I'm dancing in the dark
-With you between my arms
-Barefoot on the grass
-Listening to our favourite song
-When you said you looked a mess
-I whispered underneath my breath
-But you heard it
-Darling, you look perfect tonight
+Baby, I'm dancing in the dark with you between my arms
+Barefoot on the grass, listening to our favourite song
+When you said you looked a mess, I whispered underneath my breath
+But you heard it, darling, you look perfect tonight
 
 [Verse 2: Beyoncé]
-Well, I found a man
-Stronger than anyone I know
-He shares my dreams
-I hope that someday we'll share a home
-I found a love
-To carry more than just my secrets
-To carry love, to carry children
-Of our own
+Well, I found a man stronger than anyone I know
+He shares my dreams, I hope that someday we'll share a home
+I found a love to carry more than just my secrets
+To carry love, to carry children of our own
 We are still kids, but we're so in love
 Fightin' against all odds
 I know we'll be alright this time
@@ -44,32 +31,24 @@ Be your girl, you'll be my man
 And I see my future in your eyes
 
 [Chorus 2: Beyoncé, Ed Sheeran & Both]
-Well, baby, I'm dancing in the dark
-With you between my arms
-Barefoot on the grass
-While listening to our favorite song
-When I saw you in that dress
-Looking so beautiful
-I don't deserve this
-Darling, you look perfect tonight
+Well, baby, I'm dancing in the dark with you between my arms
+Barefoot on the grass while listening to our favorite song
+When I saw you in that dress looking so beautiful
+I don't deserve this, darling, you look perfect tonight
 
 [Instrumental]
 
 [Chorus 3: Beyoncé, Ed Sheeran & Both]
-Baby, I'm dancing in the dark
-With you between my arms
-Barefoot on the grass
-While listenin' to our favorite song
+Baby, I'm dancing in the dark with you between my arms
+Barefoot on the grass, while listenin' to our favorite song
 I have faith in what I see
-Now I know I have met an angel
-In person
-And she looks perfect
-And he looks perfect
+Now I know I have met an angel in person
+And she looks perfect, and he looks perfect
 No, I don't deserve this
 You look perfect tonight
 
 "
-20001,Havana,pop,Camila Cabello,[500737046],[27],1,0,"
+20001,Havana,pop,Camila Cabello,[],[],0,0,"
 
 [Intro: Pharrell Williams]
 Hey
@@ -409,7 +388,7 @@ You've been actin' so shady
 I've been feelin' it lately, baby
 
 "
-20005,New Rules,pop,Dua Lipa,[],[],0,0,"
+20005,New Rules,pop,Dua Lipa,[500737046],[27],1,0,"
 
 [Intro]
 One, one, one, one, one...
@@ -918,10 +897,11 @@ Ella, lo juro, me muera...
 Letra de ""El Patio""[Coro]
 Fuera, vete de mi casa
 Tú no eres mi amiga
-Que yo sigo jugando qué más da
-Sigo jugando solo, me aburro
+Que yo sigo jugando, qué más da
+Sigo jugando solo
 
-El patio está vació
+Me aburro
+El patio está vacío
 Y suenan las sirenas
 Y yo sigo jugando, qué más da
 Sigo jugando y siempre me castigas
@@ -931,7 +911,7 @@ Y solo quiero que te vayas
 Solo quiero que se acabe
 Solo quiero que me dejes solo
 
-[verso]
+[Verso]
 Fuera, vete de mi casa
 Suéltame las manos
 No soy más que un niño

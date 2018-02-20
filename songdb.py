@@ -1,8 +1,9 @@
+#!/usr/bin/python3
 from pymongo import MongoClient
 import genius_scrapping
 
-#client = MongoClient('localhost',27017)
-
+client = MongoClient('localhost',27017)
+#client = MongoClient('mongodb://{}:{}@localhost:27017/'.format(variables.user_mongo,variables.passw_mongo))
 def getNextSequence(name,select):
     db = client.song
     if select == 1:
@@ -76,25 +77,7 @@ if __name__ == '__main__':
                 ("Míranos","Álex Ubago")]
    
 
-    #regueton = [("Despacito","Luis Fonsi"), ("La Modelo","Ozuna"),
-    #            ("Krippy Kush (Remix)","Farruko, Nicki Minaj & Bad Bunny"),,
-    #            ("Bella y Sensual","Romeo Santos"), ("Escápate Conmigo","Wisin"), ("Sensualidad","Bad Bunny"),
-    #            ("El Farsante","Ozuna"), ("Downtown","Anitta"), ("Se Preparó","Ozuna"), ("Síguelo Bailando","Ozuna"),
-    #            ("Como Antes","Yandel"), ("Que Va", "Alex Sensation + Ozuna "), ("Loco Enamorado","Abraham Mateo"),
-    #            ("Vuelve","Daddy Yankee"), ("Todo Comienza En La Disco","Wisin"), ("Quiero Repetir","Ozuna"),
-    #            ("Amor, Amor, Amor","Jennifer Lopez"), ("La Formula","De La Ghetto"), ("Chambea","Bad Bunny"),
-    #            ("3 A.M.","Jesse y Joy & Gente de Zona"), ("Explícale","Yandel"), ("Choka Choka","Ozuna"),
-    #            ,("EL BAÑO","Enrique Iglesias"),("Mentira","Ana Mena")]
-   # pop = [("Perfect","Ed Sheeran"),("Feel It Still","Portugal. The Man"),
-   #        ("Shape of You","Ed Sheeran"),("La Bicicleta","Carlos Vives"),
-   #        rap ("​​rockstar","Post Malone"), ("All Falls Down", "Kanye West" )]
-   # romantica = [("Robarte Un Beso (Remix)","Carlos Vives"),("No Me Hubiera Enamorado","Cornelio Vega & Su Dinastía"),
-   #              ("3 A.M.","Jesse y Joy & Gente de Zona"), ("No Vaya A Ser","Pablo Alborán"),
-   #
-   #              ("Too Good at Goodbyes","Sam Smith"),("Stargazing","Kygo")
-   #              ("Yo Contigo, Tú Conmigo (The Gong Gong Song)","Morat"),("Versace on the Floor","Bruno Mars")]
-
-
+  
 
     for song_name, artista in regueton:
         dbs(1,song_name,artista,genius_scrapping.lyrics(song_name,artista))
