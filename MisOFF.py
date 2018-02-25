@@ -103,7 +103,7 @@ def analizar(bot, update):
        #verifica si a usado el chat bo antes
        bot.sendMessage( chat_id=update.message.chat_id , text = "Encantado {} que quieras continuar.".format(update.message.from_user.first_name))
 
-
+       read_db.drop(update)
        bot.sendMessage( chat_id=update.message.chat_id, text="Elige el género musical que quieres analizar."
                                               , reply_markup=teclado(4))
        return CANCIONES
@@ -147,6 +147,7 @@ def canciones(bot, update ):
     #selecciona una cancion nueva
         bot.sendMessage(chat_id = update.message.chat_id, text = '!!!Disculpad, tenemos que ampliar la base de datos, prueba con otro género.',
                         reply_markup =ReplyKeyboardRemove() )
+        
         return ConversationHandler.END
     #extrae la letra de la cancion de la base de dato
     letras , keys = read_db.lyrics(update)
