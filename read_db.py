@@ -56,10 +56,11 @@ def new_song(update):
       logging.exception("no se pudo insertar datos temporales usuario.") 
   genero, init = musical_genre(update.message.text)
   i=0
+  
   while  analyzed: #mientras este analizada la cancion buscara otra
     
     song_id = randint(init,init + genero.find().count() - 1)
-    
+    print(song_id)
     i+=1
     if i == 40:
       return 1
@@ -69,8 +70,9 @@ def new_song(update):
       valid = genero.find_one({'_id':song_id})["valid"]
     except Exception as e:
       logging.exception("no se pudo encontrar la cancion") 
-    analyzed=0
+   
     if valid !=1:
+      analyzed=0
       for user_id in users_id:
         if user_id == update.message.chat.id or song_id == anterior_songId:
            analyzed = 1  
@@ -78,9 +80,10 @@ def new_song(update):
         try:
           tmp.update({"user_id":update.message.chat.id},{"$set":{"songId":song_id}})
           tmp.update({"user_id":update.message.chat.id},{"$set":{"estro":[]}})
+          return 0
         except Exception as e:
           logging.exception("no se pudo actualizar id y respuesta usuario") 
-        return 0 
+         
 
 def insert_estrofas(update):
   #guarda las respuesta del usuario de forma temporal para determinar si 
