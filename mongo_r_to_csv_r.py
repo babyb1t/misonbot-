@@ -4,7 +4,7 @@ import csv
 import json
 
 def CSV(codigo_parrafo,grado,name):
-        with open("input/userspre.csv") as f1:
+        with open("datos_csv/input/userspre.csv") as f1:
           reader = csv.reader(f1, delimiter=',')#, quotechar='') 
           i = 0
           f = csv.writer(open(name, "w+"))
@@ -47,7 +47,7 @@ def CSV(codigo_parrafo,grado,name):
              i+=1
 
 def gen(codigo,grado,name):
-   with open("input/userspre.csv") as f1:
+   with open("datos_csv/input/userspre.csv") as f1:
           reader = csv.reader(f1, delimiter=',')#, quotechar='') 
           i = 0
           f = csv.writer(open(name, "w+"))
@@ -82,20 +82,20 @@ def gen(codigo,grado,name):
 
 def main():
   try:
-     risk = open('input/userspre.csv', 'r', encoding="UTF-8").read() #find the file
+     risk = open('datos_csv/input/userspre.csv', 'r', encoding="UTF-8").read() #find the file
 
   except:
-      while risk != "input/userspre.csv":  # if the file cant be found if there is an error
+      while risk != "datos_csv/input/userspre.csv":  # if the file cant be found if there is an error
         print("Could not open", risk, "file")
         risk = input("\nPlease try to open file again: ")
   else:
-      with open("input/userspre.csv") as f1:
+      with open("datos_csv/input/userspre.csv") as f1:
         reader = csv.reader(f1, delimiter=',')#, quotechar='')
-        CSV("codigo_parrafo_estereotipo","Grado_estereotipo","output/Parrafos_estereotipo.csv")
-        CSV("codigo_parrafo_roles","Grado_roles","output/Parrafos_roles.csv")
-        CSV("codigo_parrafo_poder","Grado_poder","output/Parrafos_poder.csv")
-        CSV("codigo_parrafo_cuerpo","Grado_cuerpo","output/Parrafos_cuerpo.csv")
-        gen("Pregunta_general","Grado_general","output/Parrafos_general.csv")
+        CSV("codigo_parrafo_estereotipo","Grado_estereotipo","datos_csv/output/Parrafos_estereotipo.csv")
+        CSV("codigo_parrafo_roles","Grado_roles","datos_csv/output/Parrafos_roles.csv")
+        CSV("codigo_parrafo_poder","Grado_poder","datos_csv/output/Parrafos_poder.csv")
+        CSV("codigo_parrafo_cuerpo","Grado_cuerpo","datos_csv/output/Parrafos_cuerpo.csv")
+        gen("Pregunta_general","Grado_general","datos_csv/output/Parrafos_general.csv")
         
    
 if __name__=='__main__':

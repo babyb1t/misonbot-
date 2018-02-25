@@ -5,11 +5,14 @@ import sys
 import variables
 from pymongo import MongoClient
 from random import randint
-client = MongoClient('localhost',27017)
-#client = MongoClient('mongodb://{}:{}@localhost:27017/'.format(variables.user_mongo,variables.passw_mongo))
-
+try:
+  client = MongoClient('localhost',27017)
+  #client = MongoClient('mongodb://{}:{}@localhost:27017/'.format(variables.user_mongo,variables.passw_mongo))
+except Exception as e:
+  logging.exception("- Error al conectarse a la BD de MongoDB: ") 
+ 
 db = client.song
-
+tmp = db.tmp
 def musical_genre(select):
   global  db
   init = 0
@@ -27,25 +30,30 @@ def musical_genre(select):
 
 def song_name(update):
   #funcion que de vuelve el nombre de la canción que está siendo análisada. 
-  tmp = db.tmp
-  song_id = tmp.find_one({"user_id":update.message.chat.id})["songId"]
-  genero = musical_genre(tmp.find_one({"user_id":update.message.chat.id})["genero"])[0]
-  name = genero.find_one({"_id":song_id})["Name_song"]
+  try:
+    song_id = tmp.find_one({"user_id":update.message.chat.id})["songId"]
+    genero = musical_genre(tmp.find_one({"user_id":update.message.chat.id})["genero"])[0]
+    name = genero.find_one({"_id":song_id})["Name_song"]
+  except Exception as e:
+      logging.exception("No se pudo obtener el nombre de la canción") 
 
   return name
 
 
 def new_song(update): 
+  global tmp
   #escoge una cancion que nunca a sido analizada y devuelve 0 si es exitosa y uno si toda la base de datos fue análisada.
   anterior_songId = 0
   analyzed = 1
-  tmp = db.tmp
+  
   if tmp.find({"user_id":update.message.chat.id}).count()>0:
      anterior_songId = tmp.find_one({"user_id":update.message.chat.id})["songId"]
   drop(update)
-  tmp.insert({"user_id":update.message.chat.id,
+  try:
+    tmp.insert({"user_id":update.message.chat.id,
               "genero":update.message.text})
-  
+  except Exception as e:
+      logging.exception("no se pudo insertar datos temporales usuario.") 
   genero, init = musical_genre(update.message.text)
   i=0
   while  analyzed: #mientras este analizada la cancion buscara otra
@@ -56,54 +64,71 @@ def new_song(update):
     if i == 40:
       return 1
 
-      
-    users_id = genero.find_one({'_id':song_id})["user_id"]
-    valid = genero.find_one({'_id':song_id})["valid"]
+    try:  
+      users_id = genero.find_one({'_id':song_id})["user_id"]
+      valid = genero.find_one({'_id':song_id})["valid"]
+    except Exception as e:
+      logging.exception("no se pudo encontrar la cancion") 
     analyzed=0
     if valid !=1:
       for user_id in users_id:
         if user_id == update.message.chat.id or song_id == anterior_songId:
            analyzed = 1  
       if analyzed == 0:
-        tmp.update({"user_id":update.message.chat.id},{"$set":{"songId":song_id}})
-        tmp.update({"user_id":update.message.chat.id},{"$set":{"estro":[]}})
+        try:
+          tmp.update({"user_id":update.message.chat.id},{"$set":{"songId":song_id}})
+          tmp.update({"user_id":update.message.chat.id},{"$set":{"estro":[]}})
+        except Exception as e:
+          logging.exception("no se pudo actualizar id y respuesta usuario") 
         return 0 
 
 def insert_estrofas(update):
-  tmp = db.tmp
-  tmp.update({"user_id":update.message.chat.id},{"$push":{"estro":int(update.message.text)}})
+  #guarda las respuesta del usuario de forma temporal para determinar si 
+  global tmp
+  try:
+    tmp.update({"user_id":update.message.chat.id},{"$push":{"estro":int(update.message.text)}})
+  except Exception as e:
+      logging.exception("no se pudo actualizar respuesta del usuario temporal")
+
 
 def insert_general(update):
-  tmp = db.tmp
-  tmp.update({"user_id":update.message.chat.id},{"$set":{"general":update.message.text}})
+  global tmp
+  try:
+    tmp.update({"user_id":update.message.chat.id},{"$set":{"general":update.message.text}})
+  except Exception as e:
+      logging.exception("no se pudo actualizar repuesta del usuario en géneral")
 
 def num_estrofas(update):
-  tmp = db.tmp
+  global tmp
   return len(tmp.find_one({"user_id":update.message.chat.id})["estro"])
 
 def analyzed(update):
+  global tmp
   # indica que el usuario analizo la canción cuando el usuario contesto la ultima pregunta.  
-  posts = client.users.users
-  tmp = client.song.tmp
+  usuarios = client.users.users
   song_id = tmp.find_one({"user_id":update.message.chat.id})["songId"]
   genero = musical_genre(tmp.find_one({"user_id":update.message.chat.id})["genero"])[0]
-  age = posts.find_one({"user_id":update.message.chat.id})["user_age"]
-
-  genero.update({"_id":song_id},{"$addToSet":{"user_id":update.message.chat.id}})
-  genero.update({"_id":song_id},{"$push":{"user_age":{"$each":[int(age)]}}})
-  genero.update({"_id":song_id},{"$inc":{"analisis":1}})
+  age = usuarios.find_one({"user_id":update.message.chat.id})["user_age"]
+  try:
+    genero.update({"_id":song_id},{"$addToSet":{"user_id":update.message.chat.id}})
+    genero.update({"_id":song_id},{"$push":{"user_age":{"$each":[int(age)]}}})
+    genero.update({"_id":song_id},{"$inc":{"analisis":1}})
+  except Exception as e:
+      logging.exception("no se pudo actualizar datos de la canción")
   data = genero.find_one({"_id":song_id})["analisis"]
   # si 5 usuarios diferentes terminan de analizar esta cancion la da por validad.
-  if data > 4:
-    genero.update({"_id":song_id},{"$addToSet":{"valid":1}})
+  
+  if data > 0:
+    genero.update({"_id":song_id},{"$set":{"valid":1}})
 
 def drop(update):
+   global tmp
    #elimina los datos temporales del usuario.
    db.tmp.remove({"user_id":update.message.chat.id})
 
 def reader(update):
+   global tmp
    #devuelve la letra de la canción que el usuario escogio análizar.
-   tmp = db.tmp
    song_id = tmp.find_one({"user_id":update.message.chat.id})["songId"]
    genero = musical_genre(tmp.find_one({"user_id":update.message.chat.id})["genero"])[0]
    
@@ -112,7 +137,7 @@ def reader(update):
    return data
 
 def sanity(update):
-    tmp = db.tmp
+    global tmp
     if tmp.find({"user_id":update.message.chat.id}).count() > 0:
         return True
     else:
@@ -137,45 +162,5 @@ def lyrics(update):
    
    return letra , keys
 
-def letra(data):
-   
-   letra = {}
-   keys = list()
-   
-   lista = re.findall(r"(?<=])[ê!-?'¡¿\s,a-zA-Z()áéíóúÁÉÍÓÚñÑçã]*",data)
-   titulos = re.findall(r"\[[çã!-?'¡¿\s,a-zA-Z()áéíóúÁÉÍÓÚñÑ]+\]",data)
-   for i in range(len(lista)):
-      if not titulos[i] in letra:
-         letra[titulos[i]] = lista[i]
-         tag=re.findall(r"(outro|intro|Translation|instrumental|(\[en\]))",titulos[i], flags = re.I)
-         if tag == []:
-           
-           keys.append(titulos[i])
-                  
-         
-   return letra , keys
 
-#crea una base de datos que muestra la letra de las canciónes que estan en la base de datos.
-def nombre_tmp(genero):
-  allsongs = db.allsongs
-  
-  for i in range(0, genero.find().count()):
-      k = 0
-    
-      letr , keys = letra(genero.find()[i]["Lyrics"])
-      allsongs.insert({"_id":genero.find()[i]["_id"]})
-      for j in keys:
-         allsongs.update_one({"_id":genero.find()[i]["_id"]},{"$push":{"estrofa":letr[j]}} )
-         k+=1
-
-if __name__=='__main__':
- #prueba secilla
-  #lyrics('pop',6)
- db.allsongs.drop()
- genero = db.regueton
- nombre_tmp(genero)
- genero = db.pop
- nombre_tmp(genero)
- genero = db.romantica
- nombre_tmp(genero)
 

@@ -3,28 +3,34 @@
 import logging
 import read_db
 import variables
+import time
 from telegram import Bot
 from telegram.error import NetworkError, Unauthorized
 from time import sleep
 from pymongo import MongoClient
+try:
+  client = MongoClient('localhost',27017)
+  #client = MongoClient('mongodb://{}:{}@localhost:27017/'.format(variables.user_mongo,variables.passw_mongo))
+except Exception as e:
+  logging.exception("- Error al conectarse a la BD de MongoDB: ") 
 
-client = MongoClient('localhost',27017)
-#client = MongoClient('mongodb://{}:{}@localhost:27017/'.format(variables.user_mongo,variables.passw_mongo))
+
+usuarios = client.users.users
+tmp = client.song.tmp
+
 
 
 def user_sexo(update):
-    db = client.users
-    posts = db.users 
-    posts.update({"user_id":update.message.chat.id},{"$set":{"Sexo":update.message.text}})#update.message.text
+    
+    usuarios.update({"user_id":update.message.chat.id},{"$set":{"Sexo":update.message.text}})#update.message.text
     if update.message.text == "Chico":
-       posts.update({"user_id":update.message.chat.id},{"$set":{"Codigo_sexo":0,"analisis":[]}})
+       usuarios.update({"user_id":update.message.chat.id},{"$set":{"Codigo_sexo":0,"analisis":[]}})
     else:
-       posts.update({"user_id":update.message.chat.id},{"$set":{"Codigo_sexo":1,"analisis":[]}})
+       usuarios.update({"user_id":update.message.chat.id},{"$set":{"Codigo_sexo":1,"analisis":[]}})
 
 def user_age(update):
-  db = client.users
-  posts = db.users
-  if posts.find({"user_id": update.message.chat.id}).count() == 0:
+  global usuarios
+  if usuarios.find({"user_id": update.message.chat.id}).count() == 0:
 
     post = {"update_id": update.update_id,
             "user_id": update.message.chat.id,
@@ -32,7 +38,7 @@ def user_age(update):
             "date": update.message.date
 
             }
-    posts.insert_one(post).inserted_id
+    usuarios.insert_one(post).inserted_id
 
 
 
@@ -40,9 +46,8 @@ def user_age(update):
 
 def user_exists(update):
 # revisa si el usuario a usado el bot antes, comprobando que esté en la base de datos.
-  db = client.users
-  posts =db.users
-  if posts.find({"user_id": update.message.chat.id}).count() > 0:
+  global usuarios
+  if usuarios.find({"user_id": update.message.chat.id}).count() > 0:
    
     return True
   else:
@@ -59,22 +64,23 @@ def genero_cancion(song_id):
 
 
 def check_array(update,song_name):
-  db = client.users
-  posts = db.users
+  global usuarios
   bol = False
-  for i in range(0,len(posts.find_one({"user_id":  update.message.chat.id})["analisis"]) ):
-     if posts.find_one({"user_id":  update.message.chat.id})["analisis"][i]["name"] == song_name:
-         bol = True
+  try:
+    for i in range(0,len(usuarios.find_one({"user_id":  update.message.chat.id})["analisis"]) ):
+       if usuarios.find_one({"user_id":  update.message.chat.id})["analisis"][i]["name"] == song_name:
+           bol = True
+  except Exception as e:
+    logging.exception("- Error al obtener el analisis de los usuarios: ") 
+
   return bol
 
 def base(update,song_name):
    #genera la estructura de los datos.
-   db = client.users
-   posts = db.users
-   songdb = client.song
-   tmp = songdb.tmp
+   global usuarios, tmp
    if not check_array(update,song_name):
-     posts.update_one({"user_id":  update.message.chat.id}, {"$push": {"analisis":{ "name":song_name,
+     try:
+        usuarios.update_one({"user_id":  update.message.chat.id}, {"$push": {"analisis":{ "name":song_name,
                                                                 "genero":genero_cancion(tmp.find_one({'user_id':update.message.chat.id})["songId"]),
                                                                 "Codigo_cancion":tmp.find_one({'user_id':update.message.chat.id})["songId"],
                                                                 "codigo_parrafo_estereotipo":'',
@@ -90,99 +96,121 @@ def base(update,song_name):
                                                                                 }
                                                                      }
                                                            })
+     except Exception as e:
+         logging.exception("no se pudo actualizar el análisis")
 
 def estereotipo(update, song_name):
   #inserta la respuesta estereotipo del usuario. 
-  db = client.users
-  songdb = client.song
-  tmp = songdb.tmp
-  posts = db.users
-  
-  
+ 
+  global usuarios, tmp   
   if update.message.text != 'ninguna' :
-    posts.update_one({"user_id":  update.message.chat.id}, {"$set": {
+    try:
+      print(tmp.find_one({'user_id':update.message.chat.id}) )
+      usuarios.update_one({"user_id":  update.message.chat.id}, {"$set": {
                      "analisis.$[elemt].codigo_parrafo_estereotipo":tmp.find_one({'user_id':update.message.chat.id})["estro"],
                      "analisis.$[elemt].Grado_estereotipo":int(update.message.text)
                       }}, array_filters=[{"elemt.name":{"$eq":song_name}}] )           
-     
+    except Exception as e:
+      logging.exception("no se pudo actualizar la pregunta estereotipo") 
   else:
-    posts.update_one({"user_id":  update.message.chat.id}, {"$set": {
+    try:
+      usuarios.update_one({"user_id":  update.message.chat.id}, {"$set": {
                          "analisis.$[elemt].codigo_parrafo_estereotipo": 0,
                          "analisis.$[elemt].Grado_estereotipo": 0
                         }}, array_filters=[{"elemt.name":{"$eq":song_name}}] ) 
+    except Exception as e:
+      logging.exception("no se pudo actualizar la pregunta estereotipo")
+ 
   tmp.update({"user_id":  update.message.chat.id},{"$set":{"estro":[]}})
 
 def roles(update,song_name):
     #inserta la respuesta roles del usuario.    
-    db = client.users
-    posts = db.users
-    song = client.song
-    tmp = song.tmp
+    global usuarios, tmp
     if update.message.text != 'ninguna':
-      posts.update_one({"user_id":  update.message.chat.id},
+      try:
+         usuarios.update_one({"user_id":  update.message.chat.id},
                        {"$set": {"analisis.$[elemt].codigo_parrafo_roles": tmp.find_one({'user_id':update.message.chat.id})["estro"],
                                  "analisis.$[elemt].Grado_roles":int(update.message.text)
                                  }}, array_filters=[{"elemt.name":{"$eq":song_name}}]  )
+      except Exception as e:
+         logging.exception("no se pudo actualizar la pregunta roles") 
     else:
-      posts.update_one({"user_id":  update.message.chat.id},
+      try:
+        usuarios.update_one({"user_id":  update.message.chat.id},
                        {"$set": {"analisis.$[elemt].codigo_parrafo_roles": 0,
                                  "analisis.$[elemt].Grado_roles":0
                                 }}, array_filters=[{"elemt.name":{"$eq":song_name}}])
+      except Exception as e:
+         logging.exception("no se pudo actualizar la pregunta roles") 
 
     tmp.update({"user_id":  update.message.chat.id},{"$set":{"estro":[]}})
 
 
 def poder(update, song_name):
     #inserta la respuesta poder del usuario.
-    db = client.users
-    posts = db.users
-    song = client.song
-    tmp = song.tmp
     
+    global usuarios, tmp
     if update.message.text != 'ninguna':
-       posts.update_one({"user_id":  update.message.chat.id},
+      try: 
+        usuarios.update_one({"user_id":  update.message.chat.id},
                        {"$set": {"analisis.$[elemt].codigo_parrafo_poder":tmp.find_one({'user_id':update.message.chat.id})["estro"],
                                  "analisis.$[elemt].Grado_poder":int(update.message.text)
                                  }}, array_filters=[{"elemt.name":{"$eq":song_name}}])
+      except Exception as e:
+        logging.exception("no se pudo actualizar la pregunta poder") 
     else:
-      posts.update_one({"user_id":  update.message.chat.id},
+      try:
+        usuarios.update_one({"user_id":  update.message.chat.id},
                        {"$set": {"analisis.$[elemt].codigo_parrafo_poder":0,
                                  "analisis.$[elemt].Grado_poder":0
                                 }}, array_filters=[{"elemt.name":{"$eq":song_name}}])
+      except Exception as e:
+        logging.exception("no se pudo actualizar la pregunta poder") 
+
     tmp.update({"user_id":  update.message.chat.id},{"$set":{"estro":[]}})
 
 def cuerpo(update, song_name):
     #inserta la respuesta cuerpo del usuario.
-    db = client.users
-    posts = db.users
-    song = client.song
-    tmp = song.tmp
+    global usuarios, tmp
     if update.message.text != 'ninguna':
-      posts.update_one({"user_id":  update.message.chat.id},
+      try:
+        usuarios.update_one({"user_id":  update.message.chat.id},
                        {"$set": {"analisis.$[elemt].codigo_parrafo_cuerpo":tmp.find_one({'user_id':update.message.chat.id})["estro"],
                                  "analisis.$[elemt].Grado_cuerpo":int(update.message.text)
                                  }}, array_filters=[{"elemt.name":{"$eq":song_name}}])
+      except Exception as e:
+        logging.exception("no se pudo actualizar la pregunta cuerpo")
+ 
     else:
-      posts.update_one({"user_id":  update.message.chat.id},
+      try:
+        usuarios.update_one({"user_id":  update.message.chat.id},
                        {"$set": {"analisis.$[elemt].codigo_parrafo_cuerpo":0,
                                  "analisis.$[elemt].Grado_cuerpo":0
                                 }}, array_filters=[{"elemt.name":{"$eq":song_name}}])
+      except Exception as e:
+        logging.exception("no se pudo actualizar la pregunta cuerpo") 
     tmp.update({"user_id":  update.message.chat.id},{"$set":{"estro":[]}})
 
 def general(update, song_name ):
     #inserta la respuesta general es decir si al usuario le parecio sexista la letra de la cancion.
-    db = client.users
-    posts = db.users
+    global usuarios, tmp
     if update.message.text == 'No' or update.message.text == 'no':
-      posts.update_one({"user_id":  update.message.chat.id},
+      try:
+        usuarios.update_one({"user_id":  update.message.chat.id},
                        {"$set": {"analisis.$[elemt].Pregunta_general": 'No',
                                  "analisis.$[elemt].Grado_general":0
                                 }}, array_filters=[{"elemt.name":{"$eq":song_name}}])
+      except Exception as e:
+        logging.exception("no se pudo actualizar la pregunta general")
+ 
     else:
-      posts.update_one({"user_id":  update.message.chat.id},
+      try:
+        usuarios.update_one({"user_id":  update.message.chat.id},
                        {"$set": {"analisis.$[elemt].Pregunta_general":'Si',
                                  "analisis.$[elemt].Grado_general":int(update.message.text)
                                  }}, array_filters=[{"elemt.name":{"$eq":song_name}}])
+      except Exception as e:
+        logging.exception("no se pudo actualizar la pregunta general")   
 
 
 

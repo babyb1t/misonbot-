@@ -9,11 +9,14 @@ from telegram import  (ReplyKeyboardMarkup, ReplyKeyboardRemove, User, Bot,Inlin
 from telegram.ext import (Updater, CommandHandler, MessageHandler, ConversationHandler, Filters,RegexHandler,CallbackQueryHandler)
 
 
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    level=logging.INFO)
-logger = logging.getLogger(__name__)
+
 
 EDAD, SEXO ,CANCIONES ,ESTEROTIPO, GENRE, AWNSER1, ROLES, AWNSER2, PODER, AWNSER3, CUERPO, AWNSER4,GENERAL, AWNSER5, END1 = range(15)
+
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.INFO)
+
+logger = logging.getLogger(__name__)
 
 def teclado(select):
   bol = False
@@ -142,7 +145,7 @@ def canciones(bot, update ):
     
     if read_db.new_song(update):
     #selecciona una cancion nueva
-        bot.sendMessage(chat_id = update.message.chat_id, text = 'analizaste toda la base de datos',
+        bot.sendMessage(chat_id = update.message.chat_id, text = '!!!Disculpad, tenemos que ampliar la base de datos, prueba con otro género.',
                         reply_markup =ReplyKeyboardRemove() )
         return ConversationHandler.END
     #extrae la letra de la cancion de la base de dato
@@ -350,6 +353,11 @@ def end (bot, update):
   #cierra conversación.
   return ConversationHandler.END
 
+
+def error(bot, update, error):
+    """Log Errors caused by Updates."""
+    logger.warning('Update "%s" caused error "%s"', update, error)
+
 def cancel(bot,update):
 
   read_db.drop(update)
@@ -402,8 +410,10 @@ def main():
 
         },
 
-        fallbacks=[CommandHandler('cancel', cancel)]
+        fallbacks=[CommandHandler('cancel', cancel)], 
+        allow_reentry=True
   )
+  updater.dispatcher.add_error_handler(error)
   updater.dispatcher.add_handler(CommandHandler('start',start))
   updater.dispatcher.add_handler(conv_handler)
   updater.dispatcher.add_handler(CommandHandler('cancion',mostrar_cancion))
