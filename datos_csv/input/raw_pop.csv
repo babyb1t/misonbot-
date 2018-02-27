@@ -1,28 +1,41 @@
 _id,Name_song,Genero,Artista,user_id,user_age,analisis,valid,Lyrics
-20000,Perfect Duet,pop,Ed Sheeran & Beyonce,[],[],0,0,"
+20000,Perfect Duet,pop,Ed Sheeran & Beyonce,[405310030],[35],1,0,"
 
 [Verse 1: Ed Sheeran]
-I found a love for me
-Oh darling, just dive right in and follow my lead
-Well, I found a girl, beautiful and sweet
-Oh, I never knew you were the someone waitin' for me
+I found a love
+For me
+Oh darling, just dive right in
+And follow my lead
+Well, I found a girl
+Beautiful and sweet
+Oh, I never knew you were the someone
+Waitin' for me
 'Cause we were just kids when we fell in love
 Not knowin' what it was
 I will not give you up this time
-But darling, just kiss me slow, your heart is all I own
+But darling, just kiss me slow
+Your heart is all I own
 And in your eyes, you're holding mine
 
 [Chorus 1: Ed Sheeran]
-Baby, I'm dancing in the dark with you between my arms
-Barefoot on the grass, listening to our favourite song
-When you said you looked a mess, I whispered underneath my breath
-But you heard it, darling, you look perfect tonight
+Baby, I'm dancing in the dark
+With you between my arms
+Barefoot on the grass
+Listening to our favourite song
+When you said you looked a mess
+I whispered underneath my breath
+But you heard it
+Darling, you look perfect tonight
 
 [Verse 2: Beyoncé]
-Well, I found a man stronger than anyone I know
-He shares my dreams, I hope that someday we'll share a home
-I found a love to carry more than just my secrets
-To carry love, to carry children of our own
+Well, I found a man
+Stronger than anyone I know
+He shares my dreams
+I hope that someday we'll share a home
+I found a love
+To carry more than just my secrets
+To carry love, to carry children
+Of our own
 We are still kids, but we're so in love
 Fightin' against all odds
 I know we'll be alright this time
@@ -31,24 +44,32 @@ Be your girl, you'll be my man
 And I see my future in your eyes
 
 [Chorus 2: Beyoncé, Ed Sheeran & Both]
-Well, baby, I'm dancing in the dark with you between my arms
-Barefoot on the grass while listening to our favorite song
-When I saw you in that dress looking so beautiful
-I don't deserve this, darling, you look perfect tonight
+Well, baby, I'm dancing in the dark
+With you between my arms
+Barefoot on the grass
+While listening to our favorite song
+When I saw you in that dress
+Looking so beautiful
+I don't deserve this
+Darling, you look perfect tonight
 
 [Instrumental]
 
 [Chorus 3: Beyoncé, Ed Sheeran & Both]
-Baby, I'm dancing in the dark with you between my arms
-Barefoot on the grass, while listenin' to our favorite song
+Baby, I'm dancing in the dark
+With you between my arms
+Barefoot on the grass
+While listenin' to our favorite song
 I have faith in what I see
-Now I know I have met an angel in person
-And she looks perfect, and he looks perfect
+Now I know I have met an angel
+In person
+And she looks perfect
+And he looks perfect
 No, I don't deserve this
 You look perfect tonight
 
 "
-20001,Havana,pop,Camila Cabello,[],[],0,0,"
+20001,Havana,pop,Camila Cabello,[500737046],[27],1,0,"
 
 [Intro: Pharrell Williams]
 Hey
@@ -225,7 +246,7 @@ Ooh, ooh
 Tryna' do what lovers do (ooh)
 
 "
-20003,Wolves,pop,Selena Gomez & Marshmello,[],[],0,0,"
+20003,Wolves,pop,Selena Gomez & Marshmello,[396749095],[19],1,0,"
 
 [Verse 1]
 In your eyes, there's a heavy blue
@@ -298,7 +319,7 @@ I've been crying with the wolves
 To get to you, to get to you, to get to you
 
 "
-20004,How Long,pop,Charlie Puth,[],[],0,0,"
+20004,How Long,pop,Charlie Puth,[405310030],[35],1,0,"
 
 [Intro]
 Alright
@@ -388,7 +409,7 @@ You've been actin' so shady
 I've been feelin' it lately, baby
 
 "
-20005,New Rules,pop,Dua Lipa,[500737046],[27],1,0,"
+20005,New Rules,pop,Dua Lipa,[],[],0,0,"
 
 [Intro]
 One, one, one, one, one...
@@ -579,7 +600,7 @@ I'll be with you from dusk till dawn
 Baby, I am right here
 
 "
-20007,Tip Toe,pop,Jason Derulo,[],[],0,0,"
+20007,Tip Toe,pop,Jason Derulo,[480450152],[15],1,0,"
 
 [Intro: Jason Derulo & Soaky Siren]
 Derulo
@@ -761,7 +782,7 @@ Little less, over, over, over, over, me
 Oh
 
 "
-20009,Guerrera,pop,C. Tangana,[],[],0,0,"
+20009,Guerrera,pop,C. Tangana,[41432574],[37],1,0,"
 
 
 Letra de ""Guerrera"" ft. Dellafuente[Estribillo: C. Tangana]
@@ -891,17 +912,16 @@ Lo juro, me muera
 Ella, lo juro, me muera...
 
 "
-20011,El Patio,pop,Pablo López,[],[],0,0,"
+20011,El Patio,pop,Pablo López,"[372575495,388019140]","[27,16]",2,0,"
 
 
 Letra de ""El Patio""[Coro]
 Fuera, vete de mi casa
 Tú no eres mi amiga
-Que yo sigo jugando, qué más da
-Sigo jugando solo
+Que yo sigo jugando qué más da
+Sigo jugando solo, me aburro
 
-Me aburro
-El patio está vacío
+El patio está vació
 Y suenan las sirenas
 Y yo sigo jugando, qué más da
 Sigo jugando y siempre me castigas
@@ -911,7 +931,7 @@ Y solo quiero que te vayas
 Solo quiero que se acabe
 Solo quiero que me dejes solo
 
-[Verso]
+[verso]
 Fuera, vete de mi casa
 Suéltame las manos
 No soy más que un niño
@@ -941,7 +961,7 @@ Sigo jugando solo
 Yo sigo jugando, qué más da
 
 "
-20012,No Vaya A Ser,pop,Pablo Alborán,[],[],0,0,"
+20012,No Vaya A Ser,pop,Pablo Alborán,"[429520994,489327083]","[31,23]",2,0,"
 
 [Verso 1]
 No hay reglas para amar
@@ -991,7 +1011,7 @@ No vaya a ser que me equivoque y te vuelva a perder
 No vaya a ser que me caiga otra vez
 
 "
-20013,Saturno,pop,Pablo Alborán,[],[],0,0,"
+20013,Saturno,pop,Pablo Alborán,"[5913140,85233041,513594025]","[26,25,51]",3,0,"
 
 [Verso 1]
 Vuelves, en cada sueño que tengo
@@ -1040,7 +1060,7 @@ Pidiendo perdón, cosa que nunca pudimos hacer
 Cosa que nunca pudimos hacer peor
 
 "
-20014,24K Magic,pop,Bruno Mars,[],[],0,0,"
+20014,24K Magic,pop,Bruno Mars,"[494681716,243084571]","[16,27]",2,0,"
 
 [Intro]
 Tonight
@@ -1151,7 +1171,7 @@ Uh, look out
 (24 karat magic, magic, magic)
 
 "
-20015,Rockabye,pop,Clean Bandit,[500737046],[27],1,1,"
+20015,Rockabye,pop,Clean Bandit,[],[],0,0,"
 
 [Intro: Sean Paul]
 Call it love and devotion
@@ -1450,7 +1470,7 @@ Is that lost on you?
 Is that lost on you?
 
 "
-20018,Perfect Strangers,pop,Jonas Blue,[],[],0,0,"
+20018,Perfect Strangers,pop,Jonas Blue,"[500737046,17149787,92458213]","[27,45,21]",3,0,"
 
 [Verse 1]
 You were looking at me like you wanted to stay
@@ -1523,7 +1543,7 @@ Maybe we don't need no reason why
 Come on, come on, come over
 
 "
-20019,Cómo Te Atreves,pop,Morat,[500737046],[27],1,1,"
+20019,Cómo Te Atreves,pop,Morat,[500737046],[27],1,0,"
 
 [Verse 1]
 Hoy me pregunto que será de ti 
@@ -1609,7 +1629,7 @@ Ohhh (Cómo te atreves a volver)
 Ohhh (Como te atreves a volver, no, no, no)
 
 "
-20020,Espectacular,pop,Fangoria,[],[],0,0,"
+20020,Espectacular,pop,Fangoria,[197254286],[30],1,0,"
 
 [Intro:]
 Espectacular

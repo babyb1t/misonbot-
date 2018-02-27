@@ -26,15 +26,27 @@ Al ejecutar el **script songdb.py** se se almacenan una lista de canciones divid
  {_id:xxxx,
   Name_song:xxxxx,
   Artista: xxxxx,
-  user_id:\[xxxx, xxxx, xxxx, ...\]
-  user_age:\[xxxx, xxxx, xxxx, ...\]
+  user_id:[xxxx, xxxx, xxxx, ...]
+  user_age:[xxxx, xxxx, xxxx, ...]
   analisis:x
   valid:
   Lyrics:
  }
 ```
-la **_id** de la colección indica el género es decir, si la id comienza en 1 son letras de canciones de reguetón, cuando comienza en 2 son letras de canciones de pop y si comienza en 3 son letras de canciones románticas. 
+la **_id** de la colección indica el género es decir, si la id comienza en 1 son letras de canciones de reguetón, cuando comienza en 2 son letras de canciones de pop, si comienza en 3 son letras de canciones románticas. 
 
+**el script allsong_collection.py** genera una colección de de todas las canciones almacenadas en la base de datos.
+
+**salidad** colección allsong
+
+```
+ {_id:xxxx,
+  estrofa:xxxx
+ }
+
+```
+donde la _id es la id de la canción
+estrofas letra de la canción dividida por estrofas 
 
 ## Equipo
 

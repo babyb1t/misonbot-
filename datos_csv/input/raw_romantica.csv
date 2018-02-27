@@ -1,5 +1,5 @@
 _id,Name_song,Genero,Artista,user_id,user_age,analisis,valid,Lyrics
-30000,Deja Que Te Bese,romantica,Alejandro Sanz,[500737046],[27],1,0,"
+30000,Deja Que Te Bese,romantica,Alejandro Sanz,"[166363070,77938606,396749095,313183839]","[23,33,19,69]",4,0,"
 
 [Verse 1]
 Deja que se enteren
@@ -83,7 +83,7 @@ Que quiere amar
 Que quiere amar
 
 "
-30001,Espectacular,romantica,Fangoria,[500737046],[27],1,1,"
+30001,Espectacular,romantica,Fangoria,"[405310030,429520994,194643121,545227712,487216933]","[35,31,44,15,24]",5,1,"
 
 [Intro:]
 Espectacular
@@ -179,7 +179,7 @@ Espectacular
 Sensacional
 
 "
-30002,"Yo Contigo, Tú Conmigo (The Gong Gong Song)",romantica,Morat,[500737046],[27],1,1,"
+30002,"Yo Contigo, Tú Conmigo (The Gong Gong Song)",romantica,Morat,"[45254362,7846574]","[35,42]",2,0,"
 
 [Verso 1]
 ¿Por qué, Por qué, Por qué?
@@ -254,7 +254,7 @@ Que va ser mi
 Gong gong goro gong gong
 
 "
-30003,Míranos,romantica,Álex Ubago,[500737046],[27],1,1,"
+30003,Míranos,romantica,Álex Ubago,[388019140],[16],1,0,"
 
 [verso 1:]
 Después de todo este final

@@ -17,6 +17,36 @@ primero se tiene que ejecutar el script songdb para generar una base de datos en
 - Director del proyecto:
   - [Diego Álvarez](https://about.me/diegoalsan) | @diegoalsan
 
+## Estructura de datos:
+**salida** colección users.
+```
+{
+    "_id" : ObjectId(x),
+    "update_id" : xxxxxx,
+    "user_id" : xxxx,
+    "user_age" : xxxxx,
+    "date" : xxxxx,
+    "Sexo" : "xxxx",
+    "Codigo_sexo" : x,
+    "analisis" : [	{
+			"name" : "xxxx",
+			"genero" : "xxxx",
+			"Codigo_cancion" : xxxxx,
+			"codigo_parrafo_estereotipo" : [x,x,x],
+			"Grado_estereotipo" : xxxx,
+			"codigo_parrafo_roles" :[x,x,x],
+			"Grado_roles" :xxxx,
+			"codigo_parrafo_poder" : [x,x,x],
+			"Grado_poder" : xxx,
+			"codigo_parrafo_cuerpo" : [x,x,x],
+			"Grado_cuerpo" : xxxx,
+			"Pregunta_general" : xxxx,
+			"Grado_general" : xxxx
+		}, ..., ..., ... ]
+}
+
+```
+
 
 
 ## Contexto del proyecto

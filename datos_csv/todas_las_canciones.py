@@ -29,14 +29,14 @@ def CSV(name):
 
 def main():
   try:
-     risk = open('datos_csv/input/allsongs.csv', 'r', encoding="UTF-8").read() #find the file
+     risk = open('input/allsongs.csv', 'r', encoding="UTF-8").read() #find the file
 
   except:
-      while risk != "datos_csv/input/allsongs.csv":  # if the file cant be found if there is an error
+      while risk != "input/allsongs.csv":  # if the file cant be found if there is an error
         print("Could not open", risk, "file")
         risk = input("\nPlease try to open file again: ")
   else:
-     CSV("datos_csv/output/todas_canciones.csv")     
+     CSV("output/todas_canciones.csv")     
 
 
 if __name__ =='__main__':

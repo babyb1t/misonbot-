@@ -1,10 +1,104 @@
 user_id,user_age,Sexo,codigo_sexo,nombre_cancion,Codigo_cancion,Pregunta_general,Grado_general
-500737046,27,Chico,0,New Rules,20005,No,0
-500737046,27,Chico,0,Mayores,10005,Si,8
-500737046,27,Chico,0,Deja Que Te Bese,30000,Si,6
-500737046,27,Chico,0,Míranos,30003,Si,9
-500737046,27,Chico,0,Corazón,10003,No,0
-500737046,27,Chico,0,Rockabye,20015,No,0
-500737046,27,Chico,0,Espectacular,30001,Si,8
-500737046,27,Chico,0,"Yo Contigo, Tú Conmigo (The Gong Gong Song)",30002,No,0
-500737046,27,Chico,0,Cómo Te Atreves,20019,No,0
+405310030,35,Chica,1,How Long,,Si,8
+405310030,35,Chica,1,Perfect Duet,,No,0
+405310030,35,Chica,1,Espectacular,,No,0
+4180153,34,Chico,0,Perro Fiel,,,
+514577593,18,Chico,0,Échame La Culpa,,Si,7
+514577593,18,Chico,0,Súbeme La Radio,10008,No,0
+514577593,18,Chico,0,Corazón,10003,Si,5
+514577593,18,Chico,0,Despacito,10007,Si,8
+393673671,23,Chico,0,Corazón,,Si,8
+528352397,36,Chica,1,Espectacular,,,
+41432574,37,Chica,1,Guerrera,,Si,9
+500737046,27,Chico,0,Guerrera,,,
+500737046,27,Chico,0,"Yo Contigo, Tú Conmigo (The Gong Gong Song)",,,
+500737046,27,Chico,0,Súbeme La Radio,10008,No,0
+500737046,27,Chico,0,Wolves,20003,,
+500737046,27,Chico,0,Dusk Till Dawn,20006,,
+5913140,26,Chica,1,Saturno,,Si,6
+166363070,23,Chica,1,Deja Que Te Bese,,Si,10
+429520994,31,Chico,0,No Vaya A Ser,,No,0
+429520994,31,Chico,0,Espectacular,,No,0
+429520994,31,Chico,0,Guerrera,20009,,
+210964221,40,Chica,1,Échame La Culpa,,Si,8
+372575495,27,Chica,1,El Patio,,No,0
+170757937,45,Chica,1,Déjate Llevar,,,
+496232405,50,Chico,0,Criminal,,,
+480529312,24,Chico,0,Havana,,,
+470682426,46,Chico,0,Mayores,,Si,8
+24661738,24,Chico,0,Míranos,,,
+4510614,35,Chico,0,Mayores,,Si,9
+32849547,33,Chico,0,"Yo Contigo, Tú Conmigo (The Gong Gong Song)",,,
+32849547,33,Chico,0,Mayores,,Si,9
+45254362,35,Chica,1,"Yo Contigo, Tú Conmigo (The Gong Gong Song)",,Si,6
+12993474,49,Chica,1,"Yo Contigo, Tú Conmigo (The Gong Gong Song)",,,
+115658979,25,Chica,1,Échame La Culpa,,No,0
+292311714,38,Chica,1,Perro Fiel,10001,,
+492729980,24,Chica,1,What Lovers Do,20002,,
+492729980,24,Chica,1,Déjate Llevar,10006,Si,8
+55074297,24,Chico,0,Déjate Llevar,10006,,
+7846574,42,Chica,1,"Yo Contigo, Tú Conmigo (The Gong Gong Song)",30002,Si,9
+225785037,29,Chica,1,"Yo Contigo, Tú Conmigo (The Gong Gong Song)",30002,,
+222970656,29,Chica,1,Rockabye,20015,,
+482581713,25,Chica,1,24K Magic,20014,,
+281082907,15,Chico,0,Mayores,10005,Si,9
+388019140,16,Chico,0,El Patio,20011,No,0
+388019140,16,Chico,0,Déjate Llevar,10006,Si,9
+388019140,16,Chico,0,Míranos,30003,Si,1
+56891814,16,Chica,1,Mi Gente (feat. Beyoncé),10004,,
+56891814,16,Chica,1,New Rules,20005,,
+56891814,16,Chica,1,Lost on You,20017,,
+56891814,16,Chica,1,Mayores,10005,,
+528281749,16,Chica,1,Despacito,10007,,
+440295695,15,Chico,0,Échame La Culpa,10000,Si,3
+440295695,15,Chico,0,Despacito,10007,,
+430667407,16,Chico,0,Corazón,10003,,
+494681716,16,Chico,0,24K Magic,20014,Si,8
+494681716,16,Chico,0,Échame La Culpa,10000,Si,8
+511692637,15,Chico,0,Corazón,10003,Si,9
+511692637,15,Chico,0,Déjate Llevar,10006,,
+85233041,25,Chica,1,Saturno,20013,Si,2
+499745482,15,Chico,0,Despacito,10007,,
+493889538,41,Chica,1,Corazón,10003,Si,1
+77938606,33,Chico,0,Súbeme La Radio,10008,No,0
+77938606,33,Chico,0,Deja Que Te Bese,30000,Si,6
+194643121,44,Chico,0,Espectacular,30001,Si,1
+58052865,34,Chica,1,Tip Toe,20007,,
+34411527,34,Chico,0,Criminal,10002,,
+446747853,20,Chica,1,Échame La Culpa,10000,Si,3
+460483848,24,Chica,1,Guerrera,20009,,
+494158733,23,Chica,1,Perro Fiel,10001,,
+494158733,23,Chica,1,"Yo Contigo, Tú Conmigo (The Gong Gong Song)",30002,,
+489327083,23,Chica,1,No Vaya A Ser,20012,No,0
+17149787,45,Chico,0,Perfect Strangers,20018,No,0
+480450152,15,Chica,1,El Patio,20011,,
+480450152,15,Chica,1,Tip Toe,20007,Si,6
+197254286,30,Chico,0,Espectacular,20020,No,0
+11277593,45,Chico,0,Cómo Te Atreves,20019,,
+3351446,24,Chico,0,Corazón,10003,,
+46497939,30,Chico,0,Criminal,10002,,
+512849038,54,Chico,0,Perro Fiel,10001,,
+513594025,51,Chica,1,Saturno,20013,Si,4
+513594025,51,Chica,1,Despacito,10007,Si,9
+513594025,51,Chica,1,Perro Fiel,10001,,
+513594025,51,Chica,1,Deja Que Te Bese,30000,,
+545227712,15,Chica,1,Espectacular,30001,No,0
+545227712,15,Chica,1,Mayores,10005,Si,6
+12948877,46,Chico,0,Corazón,10003,Si,8
+463659093,34,Chico,0,Mi Gente (feat. Beyoncé),10004,,
+243084571,27,Chico,0,24K Magic,20014,Si,8
+262901890,21,Chico,0,Déjate Llevar,10006,,
+459450208,21,Chico,0,Perro Fiel,10001,No,0
+542785353,36,Chica,1,Cómo Te Atreves,20019,,
+542785353,36,Chica,1,Échame La Culpa,10000,,
+487216933,24,Chico,0,Espectacular,30001,No,0
+393042666,13,Chico,0,Mi Gente (feat. Beyoncé),10004,Si,10
+4063874,37,Chica,1,Mi Gente (feat. Beyoncé),10004,No,0
+444592711,41,Chico,0,Despacito,10007,Si,6
+396749095,19,Chico,0,Wolves,20003,No,0
+396749095,19,Chico,0,Deja Que Te Bese,30000,No,0
+14689619,20,Chica,1,Déjate Llevar,10006,,
+92458213,21,Chica,1,Perfect Strangers,20018,Si,8
+334876528,20,Chico,0,Cómo Te Atreves,20019,,
+313183839,69,Chica,1,Déjate Llevar,10006,No,0
+313183839,69,Chica,1,Deja Que Te Bese,30000,No,0

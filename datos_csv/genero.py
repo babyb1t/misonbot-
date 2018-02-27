@@ -2,7 +2,6 @@
 import csv
 import re
 import logging
-import variables
 from pymongo import MongoClient
 from pathlib import Path
 try:
@@ -45,22 +44,22 @@ def read_and_write(namer,namew):
 def CSV(codigo_cancion,user_id):
       
           allsongs =db.allsongs
-          my_file = Path("./datos_csv/canciones_analisadas.csv")
+          my_file = Path("./output/canciones_analisadas.csv")
           if my_file.is_file():
-            f = csv.writer(open("datos_csv/canciones_analisadas.csv", "a"))
+            f = csv.writer(open("output/canciones_analisadas.csv", "a"))
             for j in range(0,len(allsongs.find_one({'_id':codigo_cancion})["estrofa"]) ):
               f.writerow([user_id,codigo_cancion,j,allsongs.find_one({'_id':codigo_cancion})["estrofa"][j]])
           
           else:
-            f = csv.writer(open("canciones_analisadas.csv", "w"))
+            f = csv.writer(open("output/canciones_analisadas.csv", "w"))
             f.writerow(["user_id","Codigo_cancion","Numero de estrofa","Texo de estrofa"])
 
 
    
 def main():
-  read_and_write("datos_csv/input/raw_pop.csv","datos_csv/output/pop.csv")
-  read_and_write("datos_csv/input/raw_regueton.csv","datos_csv/output/regueton.csv")
-  read_and_write("datos_csv/input/raw_romantica.csv","datos_csv/output/romantica.csv")
+  read_and_write("input/raw_pop.csv","output/pop.csv")
+  read_and_write("input/raw_regueton.csv","output/regueton.csv")
+  read_and_write("input/raw_romantica.csv","output/romantica.csv")
       
 
 if __name__=='__main__':

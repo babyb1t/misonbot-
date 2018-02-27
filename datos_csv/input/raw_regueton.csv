@@ -1,11 +1,11 @@
 _id,Name_song,Genero,Artista,user_id,user_age,analisis,valid,Lyrics
-10000,Échame La Culpa,regueton,Luis Fonsi & Demi Lovato,[],[],0,0,"
+10000,Échame La Culpa,regueton,Luis Fonsi & Demi Lovato,"[514577593,210964221,115658979,440295695,494681716,446747853]","[18,40,25,15,16,16,16,16,20]",9,0,"
 
 
 Letra de ""Échame La Culpa""[English Translation]
 
 [Intro: Demi Lovato & Luis Fonsi]
-Hey, Fonsi
+Hey Fonsi?
 Oh no
 ¿Qué pasa, Demi?
 Mmm... hmhm...
@@ -104,7 +104,7 @@ Ese beso que siempre te prometí
 Échame la culpa
 
 "
-10001,Perro Fiel,regueton,Shakira,[],[],0,0,"
+10001,Perro Fiel,regueton,Shakira,[459450208],[21],1,0,"
 
 
 Letra de ""Perro Fiel"" ft. Nicky Jam[Verso 1: Shakira & Nicky Jam]
@@ -194,8 +194,9 @@ Si estoy loco por tenerte
 10002,Criminal,regueton,Natti Natasha,[],[],0,0,"
 
 
-Letra de ""Criminal"" ft. OzunaEnglish Translation
+Letra de ""Criminal"" ft. Ozuna
 
+English translation
 [Intro: Ozuna]
 Uoh oh oh
 El Negrito Ojos Claros
@@ -281,7 +282,7 @@ Natti Nat, Natti Nat
 La Formula
 
 "
-10003,Corazón,regueton,Maluma,[500737046],[27],1,1,"
+10003,Corazón,regueton,Maluma,"[393673671,511692637,493889538,12948877,514577593]","[23,15,41,46,18]",5,0,"
 
 
 Letra de ""Corazón"" ft. Nego do Borel
@@ -364,11 +365,12 @@ Sólo un pedacito
 (Maluma, baby)
 
 "
-10004,Mi Gente (feat. Beyoncé),regueton,J Balvin & Willy William,[],[],0,0,"
+10004,Mi Gente (feat. Beyoncé),regueton,J Balvin & Willy William,"[393042666,4063874]","[13,37]",2,0,"
 
 
-Letra de ""Mi Gente"" (Remix) ft. Beyoncé[English Translation]
 
+Letra de ""Mi Gente"" (Remix) ft. Beyoncé
+[English Translation]
 [Verso 1: J Balvin & Beyoncé]
 Si el ritmo te lleva a mover la cabeza ya empezamos cómo es
 Mi música no discrimina a nadie así que vamos a romper
@@ -459,7 +461,7 @@ Uh huh, Uh huh
 Uh huh, Uh huh
 
 "
-10005,Mayores,regueton,Becky G,[500737046],[27],1,0,"
+10005,Mayores,regueton,Becky G,"[500737046,470682426,4510614,32849547,281082907,545227712]","[27,46,35,33,15,15]",6,1,"
 
 
 Letra de ""Mayores"" ft. Bad Bunny[Intro: Becky G]
@@ -544,7 +546,7 @@ Becky G
 Becky G
 
 "
-10006,Déjate Llevar,regueton,Juan Magán,[],[],0,0,"
+10006,Déjate Llevar,regueton,Juan Magán,"[388019140,492729980,313183839]","[16,24,69]",3,0,"
 
 
 Letra de ""Déjate Llevar"" ft. B-Case, Snova, Manuel Turizo & Belinda[Intro: Juan Magán]
@@ -633,13 +635,14 @@ Yo quiero verte sonreír otra vez
 
 [Verso 3: Snova]
 Yo sé que está dolida
-Yo nunca podré cerrar esa herida
+Yo nunca podré ser arrecerida
 Pero puede ser que tú lo olvides
 Y ser la vida mía
 No te puedo mentir acerca de mi propuesta
 No sé si es indecente pero seré tu poeta
 Pa' llevarte a la playa conmigo
-Sacar, poner su blusa y ante la pisci, dejar todo a nombre mío
+Saltar por esos ruses
+Entre la piscina por ti a nombre mío
 Ahora dime qué tal, dime si tú te vas
 
 [Coro: Juan Magán]
@@ -662,7 +665,7 @@ Snova
 B Case
 
 "
-10007,Despacito,regueton,Luis Fonsi,[],[],0,0,"
+10007,Despacito,regueton,Luis Fonsi,"[513594025,514577593,444592711]","[51,18,41]",3,0,"
 
 
 Letra de ""Despacito"" ft. Daddy Yankee[Translation]
@@ -767,7 +770,7 @@ Y que olvides tu apellido (D.Y.)
 Des-pa-cito
 
 "
-10008,Súbeme La Radio,regueton,Enrique Iglesias,[],[],0,0,"
+10008,Súbeme La Radio,regueton,Enrique Iglesias,"[500737046,77938606,514577593]","[27,33,18]",3,0,"
 
 
 

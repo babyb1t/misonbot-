@@ -1,10 +1,31 @@
 Codigo_cancion,Name_song,Genero,Artista,user_id,user_age,analisis,valid
-10000,Échame La Culpa,regueton,Luis Fonsi & Demi Lovato,0,0,0,0
-10001,Perro Fiel,regueton,Shakira,0,0,0,0
+10000,Échame La Culpa,regueton,Luis Fonsi & Demi Lovato,514577593,18,9,0
+10000,Échame La Culpa,regueton,Luis Fonsi & Demi Lovato,210964221,40,9,0
+10000,Échame La Culpa,regueton,Luis Fonsi & Demi Lovato,115658979,25,9,0
+10000,Échame La Culpa,regueton,Luis Fonsi & Demi Lovato,440295695,15,9,0
+10000,Échame La Culpa,regueton,Luis Fonsi & Demi Lovato,494681716,16,9,0
+10000,Échame La Culpa,regueton,Luis Fonsi & Demi Lovato,446747853,16,9,0
+10001,Perro Fiel,regueton,Shakira,459450208,21,1,0
 10002,Criminal,regueton,Natti Natasha,0,0,0,0
-10003,Corazón,regueton,Maluma,500737046,27,1,1
-10004,Mi Gente (feat. Beyoncé),regueton,J Balvin & Willy William,0,0,0,0
-10005,Mayores,regueton,Becky G,500737046,27,1,0
-10006,Déjate Llevar,regueton,Juan Magán,0,0,0,0
-10007,Despacito,regueton,Luis Fonsi,0,0,0,0
-10008,Súbeme La Radio,regueton,Enrique Iglesias,0,0,0,0
+10003,Corazón,regueton,Maluma,393673671,23,5,0
+10003,Corazón,regueton,Maluma,511692637,15,5,0
+10003,Corazón,regueton,Maluma,493889538,41,5,0
+10003,Corazón,regueton,Maluma,12948877,46,5,0
+10003,Corazón,regueton,Maluma,514577593,18,5,0
+10004,Mi Gente (feat. Beyoncé),regueton,J Balvin & Willy William,393042666,13,2,0
+10004,Mi Gente (feat. Beyoncé),regueton,J Balvin & Willy William,4063874,37,2,0
+10005,Mayores,regueton,Becky G,500737046,27,6,1
+10005,Mayores,regueton,Becky G,470682426,46,6,1
+10005,Mayores,regueton,Becky G,4510614,35,6,1
+10005,Mayores,regueton,Becky G,32849547,33,6,1
+10005,Mayores,regueton,Becky G,281082907,15,6,1
+10005,Mayores,regueton,Becky G,545227712,15,6,1
+10006,Déjate Llevar,regueton,Juan Magán,388019140,16,3,0
+10006,Déjate Llevar,regueton,Juan Magán,492729980,24,3,0
+10006,Déjate Llevar,regueton,Juan Magán,313183839,69,3,0
+10007,Despacito,regueton,Luis Fonsi,513594025,51,3,0
+10007,Despacito,regueton,Luis Fonsi,514577593,18,3,0
+10007,Despacito,regueton,Luis Fonsi,444592711,41,3,0
+10008,Súbeme La Radio,regueton,Enrique Iglesias,500737046,27,3,0
+10008,Súbeme La Radio,regueton,Enrique Iglesias,77938606,33,3,0
+10008,Súbeme La Radio,regueton,Enrique Iglesias,514577593,18,3,0

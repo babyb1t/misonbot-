@@ -121,7 +121,7 @@ def analyzed(update):
   data = genero.find_one({"_id":song_id})["analisis"]
   # si 5 usuarios diferentes terminan de analizar esta cancion la da por validad.
   
-  if data > 0:
+  if data > 5:
     genero.update({"_id":song_id},{"$set":{"valid":1}})
 
 def drop(update):
