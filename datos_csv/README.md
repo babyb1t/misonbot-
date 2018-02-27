@@ -15,19 +15,33 @@ para la transformación de datos se deben ejecuatar los script en el siguiente o
 
 ## estructura de datos csv.
 **Parrafos_estereotipo.csv**:
-   | user_id | user_age | sexo | codigo_sexo | nombre_cancion | codigo_cancion | codigo_parrafo_estereotipo | Grado_estereotipo |
 
-**Parrafos_roles.csv**
-   | user_id | user_age | sexo | codigo_sexo | nombre_cancion | codigo_cancion | codigo_parrafo_roles | Grado_roles |
 
-**Parrafos_poder.csv**
+  | user_id | user_age | sexo | codigo_sexo | nombre_cancion | codigo_cancion | codigo_parrafo_estereotipo | Grado_estereotipo |
+
+**Parrafos_roles.csv**:
+
+
+  | user_id | user_age | sexo | codigo_sexo | nombre_cancion | codigo_cancion | codigo_parrafo_roles | Grado_roles |
+
+
+**Parrafos_poder.csv**:
+
+
   | user_id | user_age | sexo | codigo_sexo | nombre_cancion | codigo_cancion | codigo_parrafo_poder | Grado_poder |
 
-**Parrafos_cuerpo.csv**
+
+**Parrafos_cuerpo.csv**:
+
+
   | user_id | user_age | sexo | codigo_sexo | nombre_cancion | codigo_cancion | codigo_parrafo_cuerpo | Grado_cuerpo |
 
-**Parrafos_general.csv**
+
+**Parrafos_general.csv**:
+
+
   | user_id | user_age | sexo | codigo_sexo | nombre_cancion | codigo_cancion | codigo_parrafo_general | Grado_general |
+
 
 - user_id: la identidad de usuario asignada por telegram.
 - user_age: edad indicada por el usuario.
@@ -38,13 +52,22 @@ para la transformación de datos se deben ejecuatar los script en el siguiente o
 - Grado_XXX: indica en una escala del 1 al 10 siendo 1 el nivel más bajo y 10 el mas alto, que tan ofensivo es dichas estrofas señaladas. 
 
 **pop.csv**:
+
+
   | codigo_cancion | Name_song | Genero | Artista | user_id | user_age | analisis | valid |
+
 
 **regueton.csv**:
+
+
   | codigo_cancion | Name_song | Genero | Artista | user_id | user_age | analisis | valid |
 
-**romantica.csv**
+
+**romantica.csv**:
+
+
   | codigo_cancion | Name_song | Genero | Artista | user_id | user_age | analisis | valid |
+
 
 - codigo_cancion: código de la letra canción almacenada en la base de datos.
 - Name_song: nombre de la canción.
@@ -56,8 +79,11 @@ para la transformación de datos se deben ejecuatar los script en el siguiente o
 - valid: da por analizada una canción si suficientes usuarios han analizado dicha canción. 
 
 
-**todas_canciones.csv**
+**todas_canciones.csv**:
+
+
   | codigo_cancion | Numero de estrofa | Texto de estrofa |
+
 
 - codigo_cancion: código de la letra canción almacenada en la base de datos.
 - Numero de estrofa: le asigna un numero a la estrofa.
