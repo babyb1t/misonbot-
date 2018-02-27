@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-Token_bot = 'xxxx'
-url_server = 'url'
+
+Token_genius = 'xxxx'
 user_mongo = 'xxxx'
 passw_mongo = 'xxxx'

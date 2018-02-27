@@ -105,7 +105,7 @@ def estereotipo(update, song_name):
   global usuarios, tmp   
   if update.message.text != 'ninguna' :
     try:
-      print(tmp.find_one({'user_id':update.message.chat.id}) )
+      
       usuarios.update_one({"user_id":  update.message.chat.id}, {"$set": {
                      "analisis.$[elemt].codigo_parrafo_estereotipo":tmp.find_one({'user_id':update.message.chat.id})["estro"],
                      "analisis.$[elemt].Grado_estereotipo":int(update.message.text)

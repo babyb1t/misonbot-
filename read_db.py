@@ -60,7 +60,7 @@ def new_song(update):
   while  analyzed: #mientras este analizada la cancion buscara otra
     
     song_id = randint(init,init + genero.find().count() - 1)
-    print(song_id)
+    
     i+=1
     if i == 40:
       return 1
