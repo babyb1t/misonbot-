@@ -354,7 +354,7 @@ def end (bot, update):
   #cierra conversación.
   return ConversationHandler.END
 
-
+#funcion que guarda errores del bot.
 def error(bot, update, error):
     """Log Errors caused by Updates."""
     logger.warning('Update "%s" caused error "%s"', update, error)

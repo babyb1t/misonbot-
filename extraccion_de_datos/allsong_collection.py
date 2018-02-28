@@ -1,16 +1,25 @@
 #!/usr/bin/python3
-
+# -*- coding: utf-8 -*-
 import re
 import sys
 import variables
 import logging
 from pymongo import MongoClient
 from random import randint
+
+##------------------------------------------------------------------------
+## conexión MongoDB
+##------------------------------------------------------------------------
+
 try:
   client = MongoClient('localhost',27017)
   #client = MongoClient('mongodb://{}:{}@localhost:27017/'.format(variables.user_mongo,variables.passw_mongo))
 except Exception as e:
-  logging.exception("- Error al conectarse a la BD de MongoDB: ")  
+  logging.exception("- Error al conectarse a la BD de MongoDB: ") 
+
+##------------------------------------------------------------------------
+## variables global que nos permite acceder a la colección allsongs.
+##------------------------------------------------------------------------ 
 
 db = client.song
 allsongs = db.allsongs
@@ -39,7 +48,7 @@ def song_insert(genero):
       k = 0
       try:
 
-        letr , keys = letra(genero.find()[i]["Lyrics"])
+        letr , keys = letra(genero.find()[i]["Lyrics"])# pasa el string de la letra de la canción para crear un diccionario.
 
       except Exception as e:
 
@@ -47,7 +56,7 @@ def song_insert(genero):
 
       allsongs.insert({"_id":genero.find()[i]["_id"]})
       for j in keys:
-         allsongs.update_one({"_id":genero.find()[i]["_id"]},{"$push":{"estrofa":letr[j]}} )
+         allsongs.update_one({"_id":genero.find()[i]["_id"]},{"$push":{"estrofa":letr[j]}} )# crea la coleción allsongs
          k+=1
 
 if __name__=='__main__':

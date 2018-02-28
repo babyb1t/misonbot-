@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
+
 import logging
 import read_db
 import variables
@@ -8,27 +9,34 @@ from telegram import Bot
 from telegram.error import NetworkError, Unauthorized
 from time import sleep
 from pymongo import MongoClient
+##------------------------------------------------------------------------
+## conexión MongoDB
+##------------------------------------------------------------------------
 try:
-  client = MongoClient('localhost',27017)
-  #client = MongoClient('mongodb://{}:{}@localhost:27017/'.format(variables.user_mongo,variables.passw_mongo))
+  #client = MongoClient('localhost',27017)
+  client = MongoClient('mongodb://{}:{}@localhost:27017/'.format(variables.user_mongo,variables.passw_mongo))
 except Exception as e:
   logging.exception("- Error al conectarse a la BD de MongoDB: ") 
 
-
+##------------------------------------------------------------------------
+## variables globales para acceder a las colecciones de que están 
+## almacenadas en la base de datos
+##------------------------------------------------------------------------
 usuarios = client.users.users
 tmp = client.song.tmp
 
 
 
 def user_sexo(update):
-    
-    usuarios.update({"user_id":update.message.chat.id},{"$set":{"Sexo":update.message.text}})#update.message.text
-    if update.message.text == "Chico":
-       usuarios.update({"user_id":update.message.chat.id},{"$set":{"Codigo_sexo":0,"analisis":[]}})
-    else:
-       usuarios.update({"user_id":update.message.chat.id},{"$set":{"Codigo_sexo":1,"analisis":[]}})
+  ## inserta el sexo de los usuarios 
+  usuarios.update({"user_id":update.message.chat.id},{"$set":{"Sexo":update.message.text}})#update.message.text
+  if update.message.text == "Chico":
+     usuarios.update({"user_id":update.message.chat.id},{"$set":{"Codigo_sexo":0,"analisis":[]}})
+  else:
+     usuarios.update({"user_id":update.message.chat.id},{"$set":{"Codigo_sexo":1,"analisis":[]}})
 
 def user_age(update):
+  ## inserta la edad de usuarios en colecion users
   global usuarios
   if usuarios.find({"user_id": update.message.chat.id}).count() == 0:
 
@@ -53,6 +61,7 @@ def user_exists(update):
   else:
     return False
 
+## los generos estan clásificados por id si la id comienza por 1 es reguetón, 2 es pop y 3 es romántica. 
 def genero_cancion(song_id):
   if song_id >= 10000 and song_id <= 20000:
     genero = "reguetón"
@@ -62,7 +71,7 @@ def genero_cancion(song_id):
     genero = "romántica"
   return genero
 
-
+## verifica si el usuario analizo con anterioridad dicha canción.
 def check_array(update,song_name):
   global usuarios
   bol = False
@@ -75,8 +84,9 @@ def check_array(update,song_name):
 
   return bol
 
+
 def base(update,song_name):
-   #genera la estructura de los datos.
+   #génera la estructura de los datos.
    global usuarios, tmp
    if not check_array(update,song_name):
      try:

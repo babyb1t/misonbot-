@@ -4,12 +4,25 @@ import re
 import logging
 from pymongo import MongoClient
 from pathlib import Path
+##------------------------------------------------------------------------
+## conexión MongoDB
+##------------------------------------------------------------------------
+
 try:
   client = MongoClient('localhost',27017)
   #client = MongoClient('mongodb://{}:{}@localhost:27017/'.format(variables.user_mongo,variables.passw_mongo))
 except Exception as e:
   logging.exception("no se pudo acceder a la base de datos mongoDB")
+
+##------------------------------------------------------------------------
+## crea una variable global que accede a la base de datos song.
+##------------------------------------------------------------------------
 db = client.song
+
+##------------------------------------------------------------------------
+## read_and_write(r.csv,w.csv)
+## lee la informacion de r.csv y la escribe en w.csv
+##------------------------------------------------------------------------
 def read_and_write(namer,namew):
 
   with open(namer) as fr:

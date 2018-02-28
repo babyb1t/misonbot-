@@ -1,9 +1,18 @@
 #!/usr/bin/python3
+# -*- coding: utf-8 -*-
 from pymongo import MongoClient
 import genius_scrapping
 
-client = MongoClient('localhost',27017)
-#client = MongoClient('mongodb://{}:{}@localhost:27017/'.format(variables.user_mongo,variables.passw_mongo))
+##------------------------------------------------------------------------
+## conexión MongoDB
+##------------------------------------------------------------------------
+
+try:
+  #client = MongoClient('localhost',27017)
+  client = MongoClient('mongodb://{}:{}@localhost:27017/'.format(variables.user_mongo,variables.passw_mongo))
+except Exception as e:
+  logging.exception("- Error al conectarse a la BD de MongoDB: ")
+## genera la key _id de forma incremental.
 def getNextSequence(name,select):
     db = client.song
     if select == 1:
@@ -33,7 +42,7 @@ def getNextSequence(name,select):
     return ret["seq"]
 
 
-
+#crea la estructura de la base de datos.
 def dbs(select,song_name,artista,lyrics):
     db = client.song
     if select == 1:
@@ -62,8 +71,7 @@ def dbs(select,song_name,artista,lyrics):
 
 
 if __name__ == '__main__':
-    #song_name = "q=Despacito"
-    #artista = "Luis Fonsi"
+    #(song_name = "q=Despacito", artista = "Luis Fonsi") formato
     regueton = [("Échame La Culpa","Luis Fonsi & Demi Lovato"),("Perro Fiel","Shakira"), ("Criminal","Natti Natasha"),
                  ("Corazón","Maluma"), ("Mi Gente (feat. Beyoncé)","J Balvin & Willy William"),("Mayores","Becky G"),
                  ("Déjate Llevar","Juan Magán"),("Despacito","Luis Fonsi"),("Súbeme La Radio","Enrique Iglesias")]

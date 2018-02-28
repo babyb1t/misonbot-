@@ -5,14 +5,26 @@ import sys
 import variables
 from pymongo import MongoClient
 from random import randint
+
+##------------------------------------------------------------------------
+## conexión MongoDB
+##------------------------------------------------------------------------
+
 try:
-  client = MongoClient('localhost',27017)
-  #client = MongoClient('mongodb://{}:{}@localhost:27017/'.format(variables.user_mongo,variables.passw_mongo))
+  #client = MongoClient('localhost',27017)
+  client = MongoClient('mongodb://{}:{}@localhost:27017/'.format(variables.user_mongo,variables.passw_mongo))
 except Exception as e:
   logging.exception("- Error al conectarse a la BD de MongoDB: ") 
+
+##------------------------------------------------------------------------
+## variables globales para acceder a las colecciones de que están 
+## almacenadas en la base de datos
+##------------------------------------------------------------------------
  
 db = client.song
 tmp = db.tmp
+
+# devuelve una colección segun el género seleccionado. 
 def musical_genre(select):
   global  db
   init = 0
@@ -86,7 +98,7 @@ def new_song(update):
          
 
 def insert_estrofas(update):
-  #guarda las respuesta del usuario de forma temporal para determinar si 
+  #guarda las respuesta del usuario de forma temporal. 
   global tmp
   try:
     tmp.update({"user_id":update.message.chat.id},{"$push":{"estro":int(update.message.text)}})
@@ -95,6 +107,7 @@ def insert_estrofas(update):
 
 
 def insert_general(update):
+  #guarda las respuesta del usuario de forma temporal. 
   global tmp
   try:
     tmp.update({"user_id":update.message.chat.id},{"$set":{"general":update.message.text}})
@@ -102,6 +115,7 @@ def insert_general(update):
       logging.exception("no se pudo actualizar repuesta del usuario en géneral")
 
 def num_estrofas(update):
+  #guarda las respuesta del usuario de forma temporal. 
   global tmp
   return len(tmp.find_one({"user_id":update.message.chat.id})["estro"])
 

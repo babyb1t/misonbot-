@@ -1,10 +1,11 @@
 #!/bin/bash
 
+##------------------------------------------------------------------------
+## script bash exporta colecciones a archivos csv.
+##------------------------------------------------------------------------
 
-#for i in {0..1}
-#do
 mongoexport  --db users --collection users --type=csv  --out  input/userspre.csv --fields update_id,user_id,user_age,Sexo,Codigo_sexo,analisis
-#done
+
 
 
 mongoexport  --db song --collection regueton --type=csv  --out  input/raw_regueton.csv --fields _id,Name_song,Genero,Artista,user_id,user_age,analisis,valid,Lyrics

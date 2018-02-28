@@ -4,11 +4,21 @@ import csv
 import json
 import logging 
 from pymongo import MongoClient
+##------------------------------------------------------------------------
+## conexión MongoDB
+##------------------------------------------------------------------------
 try:
   client = MongoClient('localhost',27017)
 except Exception as e:
   logging.exception("error no se pudo conectar a la base de datos mongoDB")
+##------------------------------------------------------------------------
+## crea una variable global que accede a la base de datos song.
+##------------------------------------------------------------------------
 db = client.song
+
+##------------------------------------------------------------------------
+## lee la colecion allsongs de MongoDB y la transforma a formato csv.
+##------------------------------------------------------------------------
 
 def CSV(name):
           allsongs =db.allsongs

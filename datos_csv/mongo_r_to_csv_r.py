@@ -3,6 +3,7 @@
 import csv
 import json
 
+
 def CSV(codigo_parrafo,grado,name):
         with open("input/userspre.csv") as f1:
           reader = csv.reader(f1, delimiter=',')#, quotechar='') 
