@@ -1,4 +1,5 @@
 #!/bin/env python
+import config_e
 import csv
 import re
 import logging

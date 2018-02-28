@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import re
 import sys
-import variables
+import config_s
 import logging
 from pymongo import MongoClient
 from random import randint

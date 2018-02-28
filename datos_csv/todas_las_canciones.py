@@ -1,5 +1,5 @@
 #!/bin/python
-
+import config_e
 import csv
 import json
 import logging 
@@ -9,6 +9,7 @@ from pymongo import MongoClient
 ##------------------------------------------------------------------------
 try:
   client = MongoClient('localhost',27017)
+  #client = MongoClient('mongodb://{}:{}@localhost:27017/'.format(variables.user_mongo,variables.passw_mongo))
 except Exception as e:
   logging.exception("error no se pudo conectar a la base de datos mongoDB")
 ##------------------------------------------------------------------------

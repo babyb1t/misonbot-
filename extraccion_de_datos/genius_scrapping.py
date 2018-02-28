@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 import requests
-import variables
+import config_s
 from bs4 import BeautifulSoup
 
 

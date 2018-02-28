@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
+import config_s
 from pymongo import MongoClient
 import genius_scrapping
 
@@ -8,8 +9,8 @@ import genius_scrapping
 ##------------------------------------------------------------------------
 
 try:
-  #client = MongoClient('localhost',27017)
-  client = MongoClient('mongodb://{}:{}@localhost:27017/'.format(variables.user_mongo,variables.passw_mongo))
+  client = MongoClient('localhost',27017)
+  #client = MongoClient('mongodb://{}:{}@localhost:27017/'.format(variables.user_mongo,variables.passw_mongo))
 except Exception as e:
   logging.exception("- Error al conectarse a la BD de MongoDB: ")
 ## genera la key _id de forma incremental.
