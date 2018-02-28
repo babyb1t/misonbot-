@@ -36,7 +36,7 @@ def user_sexo(update):
      usuarios.update({"user_id":update.message.chat.id},{"$set":{"Codigo_sexo":1,"analisis":[]}})
 
 def user_age(update):
-  ## inserta la edad de usuarios en colecion users
+  ## inserta la edad de usuarios en colección users
   global usuarios
   if usuarios.find({"user_id": update.message.chat.id}).count() == 0:
 
@@ -61,7 +61,7 @@ def user_exists(update):
   else:
     return False
 
-## los generos estan clásificados por id si la id comienza por 1 es reguetón, 2 es pop y 3 es romántica. 
+## los géneros están clasificados por id si la id comienza por 1 es reguetón, 2 es pop y 3 es romántica. 
 def genero_cancion(song_id):
   if song_id >= 10000 and song_id <= 20000:
     genero = "reguetón"
